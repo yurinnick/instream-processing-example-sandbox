@@ -3,7 +3,6 @@
     "cpus": 1,
     "mem": 2048,
     "disk": 2048,
-    
     "instances": 1,
     "cmd": "cd ${MESOS_SANDBOX}/cassandra-schema && ./apply_schema.sh & start",
     "container": {
@@ -24,11 +23,15 @@
                     "servicePort": 10012,
                     "protocol": "tcp"
                 }
-            ]   
+            ]
         }
     },
     "fetch": [
-        { "uri": "https://s3-us-west-1.amazonaws.com/instream-processing-sample-artifacts/cassandra-schema.tar.gz", "executable": false, "cache": false }
+        {
+            "uri": "https://s3-us-west-1.amazonaws.com/instream-processing-sample-artifacts/cassandra-schema.tar.gz",
+            "executable": false,
+            "cache": false
+        }
     ],
     "constraints": [["hostname", "UNIQUE"]]
 }

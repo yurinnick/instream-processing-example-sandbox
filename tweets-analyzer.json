@@ -1,0 +1,30 @@
+{
+    "id": "/sandbox-1/spark-apps/tweets-analyzer",
+    "cpus": 0.1,
+    "mem": 256,
+    "cmd": "cd ${MESOS_SANDBOX}/in-stream-tweets-analyzer && bash ./streaming-runner.sh",
+    "instances": 1,
+    "container": {
+        "type": "DOCKER",
+        "docker": {
+            "image": "singularities/spark:1.6",
+            "network": "BRIDGE"
+        }
+    },
+    "env": {
+        "SPARK_MASTER": "spark://175.17.0.2:7077",
+        "KAFKA_BROKER_LIST": "<<PUT_YOUR_LB_HOST_HERE>>:10014",
+        "CASSANDRA_HOST": "<<PUT_YOUR_LB_HOST_HERE>>",
+        "CASSANDRA_PORT": "10011",
+        "REDIS_HOST": "<<PUT_YOUR_LB_HOST_HERE>>",
+        "REDIS_PORT": "10013"
+    },
+    "fetch": [
+        {
+            "uri": "https://s3-us-west-1.amazonaws.com/instream-processing-sample-artifacts/in-stream-tweets-analyzer.tar.gz",
+            "extract": true,
+            "executable": false,
+            "cache": false
+        }
+    ]
+}

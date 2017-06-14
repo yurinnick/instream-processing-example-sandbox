@@ -3,7 +3,7 @@
     "cpus": 0.2,
     "mem": 768,
     "disk": 2048,
-    
+
     "cmd": "cd ${MESOS_SANDBOX}/webclient && npm install && WEB_CLIENT_PORT=3005 node server/server.js",
     "instances": 1,
     "container": {
@@ -18,7 +18,7 @@
                     "servicePort": 0,
                     "protocol": "tcp"
                 }
-            ]            
+            ]
         }
     },
     "env": {
@@ -26,6 +26,10 @@
         "CASSANDRA_PORT": "10011"
     },
     "fetch": [
-        { "uri": "https://s3-us-west-1.amazonaws.com/instream-processing-sample-artifacts/ui.tar.gz", "executable": false, "cache": false }
+        {
+            "uri": "https://s3-us-west-1.amazonaws.com/instream-processing-sample-artifacts/ui.tar.gz",
+            "executable": false,
+            "cache": false
+        }
     ]
 }

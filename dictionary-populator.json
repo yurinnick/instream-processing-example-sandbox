@@ -1,0 +1,25 @@
+{
+      "id": "/sandbox-1/dictionary-populator",
+      "cpus": 0.1,
+      "mem": 256,
+      "cmd": "cd ${MESOS_SANDBOX}/dictionary-populator && bash ./populator-runner.sh",
+      "instances": 1,
+      "container": {
+            "type": "DOCKER",
+            "docker": {
+                "image": "openjdk:6"
+            }
+      },
+      "env": {
+            "CASSANDRA_HOST": "localhost",
+            "CASSANDRA_PORT": "10011"
+      },
+      "fetch": [
+            {
+                  "uri": "https://s3-us-west-1.amazonaws.com/instream-processing-sample-artifacts/dictionary-populator.tar.gz",
+                  "extract": true,
+                  "executable": false,
+                  "cache": true
+            }
+      ]
+}

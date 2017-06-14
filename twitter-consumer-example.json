@@ -2,7 +2,7 @@
     "id": "/sandbox-1/twitter-consumer/movie1",
     "cpus": 0.1,
     "mem": 256,
-    
+
     "cmd": "cd ${MESOS_SANDBOX}/twitter-consumer && bash ./twitter-consumer-runner.sh --movie \"<<movie_name>>\"",
     "instances": 1,
     "container": {
@@ -10,8 +10,8 @@
         "docker": {
             "image": "java:8",
             "network": "BRIDGE",
-            "portMappings": [   
-            ]  
+            "portMappings": [
+            ]
         }
     },
     "env": {

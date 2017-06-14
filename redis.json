@@ -3,7 +3,6 @@
     "cpus": 0.25,
     "mem": 256,
     "disk": 1024,
-    
     "instances": 1,
     "container": {
         "type": "DOCKER",
@@ -17,7 +16,7 @@
                     "servicePort": 10013,
                     "protocol": "tcp"
                 }
-            ]      
+            ]
         }
     }
 }

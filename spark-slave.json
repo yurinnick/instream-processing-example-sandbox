@@ -1,0 +1,23 @@
+{
+    "id": "/sandbox-1/spark-worker",
+    "cpus": 0.5,
+    "mem": 512,
+    "instances": 1,
+    "cmd": "start-hadoop datanode <<PUT_YOUR_LB_HOST_HERE>> daemon; spark-class org.apache.spark.deploy.worker.Worker spark://<<PUT_YOUR_LB_HOST_HERE>>:10077",
+    "container": {
+        "type": "DOCKER",
+        "docker": {
+            "image": "singularities/spark:1.6",
+            "forcePullImage": true,
+            "network": "BRIDGE",
+            "portMappings": [
+              {
+                  "containerPort": 8888,
+                  "hostPort": 0,
+                  "servicePort": 10088,
+                  "protocol": "tcp"
+              }
+            ]
+        }
+    }
+}
